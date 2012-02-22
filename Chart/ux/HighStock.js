@@ -21,7 +21,7 @@ var logObj = function(obj, opt) {
     for(var i in obj) {
       msg += i + ', ';
     }
-    console.log(msg);
+    //console.log(msg);
   } else {
     for(var i in obj) {
       msg += i + ': ' + obj[i];
@@ -33,8 +33,8 @@ var logObj = function(obj, opt) {
   if(opt && opt.header) {
     msg = opt.header + ': ' + msg;
   }
-  console.log(msg);
-}
+  //console.log(msg);
+};
 
 Ext.define("Chart.ux.HighStock", {
   extend : 'Ext.Component',
@@ -168,7 +168,7 @@ Ext.define("Chart.ux.HighStock", {
     else
       this.chartConfig.title = {
         text : title
-      }
+      };
     if(this.chart && this.chart.container)
       this.draw();
   },
@@ -182,7 +182,7 @@ Ext.define("Chart.ux.HighStock", {
     else
       this.chartConfig.subtitle = {
         text : title
-      }
+      };
     if(this.chart && this.chart.container)
       this.draw();
   },
@@ -348,7 +348,7 @@ Ext.define("Chart.ux.HighStock", {
 
     if(this.xField && this.store) {
       for(var i = 0; i < items.length; i++) {
-        data.push(items[i].data[this.xField])
+        data.push(items[i].data[this.xField]);
       }
       if(this.chart)
         this.chart.xAxis[0].setCategories(data, true);
@@ -364,10 +364,10 @@ Ext.define("Chart.ux.HighStock", {
      */
     var getWindow = function(parent) {
       if(parent.ownerCt)
-        return getWindow(parent.ownerCt)
+        return getWindow(parent.ownerCt);
       else
         return parent;
-    }
+    };
     var w = getWindow(this);
 
     if(bind) {
@@ -379,7 +379,7 @@ Ext.define("Chart.ux.HighStock", {
     } else {
       if(this.ownerCt)
         this.ownerCt.un('render', this.update, this);
-      w.un('move', this.onMove, this)
+      w.un('move', this.onMove, this);
     }
   },
   bindSeriesStore : function(series_index, store, initial) {
@@ -546,7 +546,7 @@ Ext.define("Chart.ux.HighStock", {
   onDataChange : function(store, eOpts) {
     // Don't use onDataChange for ExtJs 4.0 because this is ambigous
     // Will be fixed in ExtJs 4.1
-    console.log("onDataChange");
+    //console.log("onDataChange");
     //this.refresh();
   },
   // private
@@ -600,27 +600,27 @@ Ext.define("Chart.ux.HighStock", {
       var s = this.series[i];
       if(s.type == 'pie' && s.useTotals) {
         s.removeData(record, index);
-        this.chart.series[i].setData(s.getTotals())
+        this.chart.series[i].setData(s.getTotals());
       } else {
-        this.chart.series[i].data[index].remove(true)
+        this.chart.series[i].data[index].remove(true);
       }
     }
     Ext.each(this.chart.series, function(serie) {
       serie.data[index].remove(true);
-    })
+    });
     if(this.xField) {
       this.updatexAxisData();
     }
   },
   // private
   onLoad : function(store) {
-    console.log("call onLoad, loading " + store.isLoading());
+    //console.log("call onLoad, loading " + store.isLoading());
     this.draw();
   },
   loadStores : function() {
     Ext.each(this.stores, function(store) {
       store.load();
-    })
+    });
   },
   destroy : function() {
     delete this.series;
@@ -652,5 +652,5 @@ Chart.ux.HighStock.Series = function() {
     get : function(id) {
       return items[values.indexOf(id)];
     }
-  }
+  };
 }();
