@@ -171,7 +171,6 @@ Ext.define("Chart.ux.SampleConfigs", {
         getData : function(record) {
           return record.data.temperature;
         },
-
         pointStart : Date.UTC(2004, 3, 1),
         pointInterval : 3600 * 1000,
         tooltip : {
