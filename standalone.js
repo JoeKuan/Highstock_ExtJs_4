@@ -14,7 +14,13 @@ Ext.application({
 
     Ext.define('StockData', {
       extend : 'Ext.data.Model',
-      fields : [{ name :'time', mapping: 0 }, {name: 'price', mapping: 1 }]
+      fields : [{
+        name : 'time',
+        mapping : 0
+      }, {
+        name : 'price',
+        mapping : 1
+      }]
     });
 
     // Use JSONP store for
@@ -24,8 +30,8 @@ Ext.application({
       proxy : {
         type : 'jsonp',
         url : 'http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json',
-        reader: {
-          type: 'array'
+        reader : {
+          type : 'array'
         }
       },
       autoLoad : false
@@ -47,6 +53,7 @@ Ext.application({
         handler : function() {
           store.load();
         }
+
       }],
       items : [{
         xtype : 'highstock',
@@ -56,16 +63,23 @@ Ext.application({
           tooltip : {
             yDecimals : 2
           },
-        xField : 'time',
-        yField : 'price',
+          xField : 'time',
+          yField : 'price',
         }],
         height : 500,
         width : 700,
         store : store,
         chartConfig : {
           chart : {
-            marginLeft: 50,
-            marginRight: 50
+            marginLeft : 50,
+            marginRight : 50
+          },
+          credits : {
+            href : 'http://joekuan.wordpress.com',
+            text : 'Joe Kuan (joekuan.wordpress.com)',
+            style : {
+              color : '#898989'
+            }
           },
           rangeSelector : {
             selected : 1
@@ -79,4 +93,5 @@ Ext.application({
     win.show();
     store.load();
   }
+
 });
