@@ -35,7 +35,7 @@ Ext.define('HighCharts.controller.Charts', {
       'chartsTree' : {
         itemclick : function(view, model, item) {
 
-          console.log("Call item click");
+          //console.log("Call item click");
           var selectedType = model.data.id.toLowerCase();
 
           if(HighCharts.updateTask) {
