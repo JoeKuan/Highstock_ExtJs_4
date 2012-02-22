@@ -88,8 +88,8 @@ Ext.define('HighCharts.controller.Charts', {
             case 'styled_scrollbar':
             case 'disabled_scrollbar':
             case 'disabled_navigator':
-case 'flags_placement':
-case 'flags_shapes':
+            case 'flags_placement':
+            case 'flags_shapes':
 
               // Setup the query
               var model_fields = null;
@@ -176,7 +176,7 @@ case 'flags_shapes':
                       }, bigData);
 
                       // Refers to the array store
-                      console.log("Load Bulk data " + bigData.length);
+                      //console.log("Load Bulk data " + bigData.length);
                       this.loadData(bigData);
                     }
                   },
@@ -206,9 +206,8 @@ case 'flags_shapes':
                   return data;
                 })(),
                 listeners : {
-                  // Every the store is added with new point, setup another
-                  // delayed
-                  // task for the next second
+                  // Once the store is added with new point, setup another
+                  // delayed task for the next second
                   add : function(store, records) {
                     if(HighCharts.updateTask) {
                       HighCharts.updateTask.delay(1000);
@@ -244,6 +243,16 @@ case 'flags_shapes':
 
           // New chart with config and id
           hcConfig.id = 'main_chart';
+          
+          // Credit
+          hcConfig.chartConfig.credits = {
+            href: 'http://joekuan.wordpress.com',
+            text: 'Joe Kuan (joekuan.wordpress.com)',
+            style: {
+              color: '#898989'
+            }
+          };
+          
           mainChart = Ext.widget('highstock', hcConfig);
           Ext.getCmp('centerpane').add(mainChart);
           mainChart.loadStores();
