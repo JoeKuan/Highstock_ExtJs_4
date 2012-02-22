@@ -45,7 +45,7 @@ Ext.define('HighCharts.controller.Charts', {
           // Destroy the current on and load a new one
           var mainChart = Ext.getCmp('main_chart');
           if(mainChart) {
-            console.log("Remove main chart");
+            //console.log("Remove main chart");
             var chartStores = mainChart.stores;
             Ext.getCmp('centerpane').remove(mainChart);
             mainChart.destroy();
@@ -114,7 +114,7 @@ Ext.define('HighCharts.controller.Charts', {
               Ext.apply(store.getProxy().extraParams, {
                 filename : query
               });
-              console.log(store);
+              //console.log(store);
               hcConfig.store = store;
               break;
 
