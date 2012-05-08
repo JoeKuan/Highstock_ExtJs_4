@@ -64,7 +64,7 @@ Ext.application({
             yDecimals : 2
           },
           xField : 'time',
-          yField : 'price',
+          yField : 'price'
         }],
         height : 500,
         width : 700,

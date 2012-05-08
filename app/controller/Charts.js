@@ -155,7 +155,7 @@ Ext.define('HighCharts.controller.Charts', {
               // Just use a simple array store
               store = Ext.create('Ext.data.ArrayStore', {
                 fields : ['temperature'],
-                storeId : 'bigArrStore',
+                storeId : 'bigArrStore'
               });
 
               //console.log(store.getProxy());

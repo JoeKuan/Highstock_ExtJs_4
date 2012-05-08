@@ -1,15 +1,13 @@
-You are allowed to use, modify, distribute the software and the source code.
+You are permitted to use this software for non-profit organisation under: 
+    Creative Commons Attribution-NonCommercial 3.0 License.
+   (http://creativecommons.org/licenses/by-nc/3.0/)
 
-If you are using this software, you are required to mention the following 
-in the 'About' menu (or any similar section) of your product 
+If you are using the software for commercial and federal projects, 
+you can obtain the permission to use and distribute free of charge as long as
 
-"Highstock extension for ExtJs 4 is developed by Joe Kuan. http://joekuan.wordpress.com"
+1. you inform me the author (kuan.joe@gmail.com) with a short description describing 
+   your project using this software.  
 
-Thank you for your support. Any questions, please either post to the 
-Highstock extension blog or email to kuan.joe@gmail.com
-
-DONATION
-If you are using this product for/from a cash-rich investment company, any paypal 
-donation (to kuan.joe@gmail.com) is welcomed towards my heating bill for 
-staying up late at night to get this product done.
+2. you give acknowledgement to the author in your project  
+    "Highstock extension for ExtJs 4 is developed & maintained by Joe Kuan (kuan.joe@gmail.com)"
 

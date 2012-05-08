@@ -18,7 +18,7 @@ Ext.define("Chart.ux.SampleConfigs", {
           yDecimals : 2
         },
         xField : 'time',
-        yField : 'price',
+        yField : 'price'
       }],
       height : 500,
       width : 700,
@@ -293,7 +293,7 @@ Ext.define("Chart.ux.SampleConfigs", {
           }],
           selected : 1,
           inputEnabled : false
-        },
+        }
       }
     },
 
