@@ -71,8 +71,6 @@ Ext.define("Chart.ux.SampleConfigs", {
           units : [['week', [1]], ['month', [1, 2, 3, 4, 6]]]
         }
       }],
-      height : 500,
-      width : 700,
       chartConfig : {
         chart : {
           marginLeft : 50,
@@ -89,16 +87,16 @@ Ext.define("Chart.ux.SampleConfigs", {
           title : {
             text : 'OHLC'
           },
-          height : 200,
-          lineWidth : 2
+          height: 200,
+          lineWidth : 2,
         }, {
           title : {
             text : 'Volume'
           },
-          top : 300,
           height : 100,
+          top : 300,
           offset : 0,
-          lineWidth : 2
+          lineWidth : 2,
         }]
       }
     },
