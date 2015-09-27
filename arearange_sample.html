@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>HighStock for ExtJS 4</title>
+    <link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="../extjs4/examples/shared/example.css" />
+    <script type="text/javascript" src="../extjs4/bootstrap.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/stock/highcharts-more.js"></script>
+    <script type='text/javascript'>
+    Ext.Loader.setConfig({
+        enabled : true,
+        disableCaching : false, // For debug only
+        paths : {
+            'Chart' : 'Chart'
+        }
+    });
+
+Ext.require('Chart.ux.HighStock');
+
+Ext.application({
+    name : 'HighStock',
+    launch : function() {
+
+        Ext.define('StockData', {
+            extend : 'Ext.data.Model',
+            fields : [{
+                name : 'time',
+                mapping : 0
+            }, {
+                name : 'min',
+                mapping : 1
+            }, {
+                name : 'max',
+                mapping : 2
+            }]
+        });
+
+        // Use JSONP store for
+        // http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?
+        var store = Ext.create('Ext.data.Store', {
+            model : 'StockData',
+            proxy : {
+                type : 'jsonp',
+                url : 'http://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?',
+                reader : {
+                    type : 'array'
+                }
+            },
+            autoLoad : false
+        });
+
+        var win = Ext.create('Ext.Window', {
+            width : 800,
+            height : 600,
+            minHeight : 400,
+            minWidth : 550,
+            hidden : false,
+            shadow : false,
+            maximizable : true,
+            title : 'Highstock example',
+            renderTo : Ext.getBody(),
+            layout : 'fit',
+            tbar : [{
+                text : 'Reload Data',
+                handler : function() {
+                    store.load();
+                }
+
+            }],
+            items : [{
+                xtype : 'highstock',
+                id : 'chart',
+                series : [{
+                    name : 'Temperatures',
+                    plot: 'arearange',
+                    getData: function(record) {
+                        return [ record.data.time, record.data.min, record.data.max ];
+                    }
+                }],
+                height : 500,
+                width : 700,
+                store : store,
+                chartConfig : {
+                    chart : {
+                        defaultSerieType: 'arearange',
+                        marginLeft : 50,
+                        marginRight : 50
+                    },
+                    credits : {
+                        href : 'http://joekuan.wordpress.com',
+                        text : 'Joe Kuan (joekuan.wordpress.com)',
+                        style : {
+                            color : '#898989'
+                        }
+                    },
+                    rangeSelector : {
+                        selected : 1
+                    },
+                    tooltip: {
+                        valueSuffix: '°C'
+                    },
+                    title : {
+                        text : 'Temperature'
+                    }
+                }
+            }]
+        });
+        win.show();
+        store.load();
+    }
+
+});
+</script>
+  </head>
+</head>
+
+<body id="docbody">
+</body> </html>
